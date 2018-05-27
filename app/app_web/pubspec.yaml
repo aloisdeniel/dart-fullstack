@@ -1,0 +1,4 @@
+name: app_web
+version: 0.0.1
+dev_dependencies:
+   browser: ^0.10.0

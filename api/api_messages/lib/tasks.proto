@@ -1,0 +1,8 @@
+message Task {
+  required bool isToggled = 1;
+  required string description = 3;
+}
+
+message TaskList {
+  repeated Task tasks = 1;
+}
