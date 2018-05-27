@@ -3,24 +3,28 @@ import 'package:api_client/api.dart';
 import 'package:api_messages/api_messages.dart';
 import 'package:rxdart/subjects.dart';
 
-class TaskListBloc {
+class TasksBloc {
 
   final Api api = new Api("http://localhost:8081");
 
-  TaskListBloc() {
+  TasksBloc() {
 
     _refresh.stream.listen((_) async {
+      print("refresh");
       var all = await api.tasks.all();
-      _tasks.add(all.tasks);
+      print("received:" + all.tasks.length.toString());
+      _items.add(all.tasks);
     });
 
     _toggle.stream.listen((task) async {
-      var index = _tasks.value.indexOf(task);
+      print("toggle");
+      var index = _items.value.indexOf(task);
       await api.tasks.toggle(index);
       refresh.add(null);
     });
 
     _add.stream.listen((task) async {
+      print("add: " + task.description);
       await api.tasks.add(task);
       refresh.add(null);
     });
@@ -31,15 +35,17 @@ class TaskListBloc {
 
   // Properties
 
-  final BehaviorSubject<List<Task>> _tasks = new BehaviorSubject<List<Task>>(seedValue: new List<Task>());
+  final BehaviorSubject<List<Task>> _items = new BehaviorSubject<List<Task>>(seedValue: new List<Task>());
+
+  Stream get items => _items.stream;
 
   // Commands
 
-  final StreamController _refresh = new StreamController();
+  final _refresh = new StreamController();
 
-  final StreamController<Task> _toggle = new StreamController<Task>();
+  final _toggle = new StreamController<Task>();
 
-  final StreamController<Task> _add = new StreamController<Task>();
+  final  _add = new StreamController<Task>();
 
   Sink<Task> get toggle => _toggle.sink;
 

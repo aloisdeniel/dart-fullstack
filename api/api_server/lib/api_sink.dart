@@ -1,6 +1,5 @@
-import 'api.dart';
+import 'api_server.dart';
 import 'controllers/task_controller.dart';
-import 'package:api_messages/tasks.pbjson.dart';
 
 /// This class handles setting up this application.
 ///

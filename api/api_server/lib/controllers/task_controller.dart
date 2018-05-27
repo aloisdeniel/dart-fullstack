@@ -1,4 +1,4 @@
-import '../api.dart';
+import '../api_server.dart';
 import 'proto_controller.dart';
 import 'package:api_messages/api_messages.dart';
 

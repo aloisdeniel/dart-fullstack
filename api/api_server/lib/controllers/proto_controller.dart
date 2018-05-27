@@ -1,4 +1,4 @@
-import '../api.dart';
+import '../api_server.dart';
 import 'package:protobuf/protobuf.dart';
 
 abstract class ProtoController extends HTTPController {
