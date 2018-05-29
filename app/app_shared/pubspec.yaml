@@ -5,5 +5,5 @@ environment:
 dependencies:
   rxdart:
   grpc:
-  api_messages:
-    path: ../../api/api_messages
+  api:
+    path: ../../api

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:api_messages/api_client.dart';
+import 'package:api/api.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:grpc/grpc.dart';
 

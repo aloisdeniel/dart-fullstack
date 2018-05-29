@@ -1,4 +1,4 @@
-name: api_server
+name: server
 description: A web server application.
 version: 0.0.1
 author: Alois Deniel
@@ -7,5 +7,5 @@ environment:
   sdk: '>=1.20.0 <2.0.0'
 
 dependencies:
-  api_messages:
-    path: ../api_messages
+  api:
+    path: ../api

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:grpc/grpc.dart';
-import 'services/tasks.dart';
+import '../services/tasks.dart';
 
 Future<Null> main(List<String> args) async {
   final Service tasks = new TaskService();

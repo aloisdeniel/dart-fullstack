@@ -4,6 +4,6 @@ environment:
   sdk: '>=2.0.0-dev.58 <2.0.0'
 dev_dependencies:
   browser: ^0.10.0
-  angular: ^4.0.0
+  angular: ^4.0.0 
   app_shared:
     path: ../app_shared

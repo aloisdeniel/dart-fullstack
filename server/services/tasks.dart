@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:api_messages/api_client.dart';
+import 'package:api/api.dart';
 import 'package:grpc/grpc.dart';
-import 'package:api_messages/generated/tasks.pb.dart';
+import 'package:api/generated/tasks.pb.dart';
 
 class TaskService extends TaskServiceBase {
 
