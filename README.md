@@ -2,6 +2,8 @@
 
 An example that uses Dart language for developing all the application layers. This experiments purpose is also to find an approach to share a maximum of logic by applying interresting architectural patterns.
 
+![schema](hero.png)
+
 ## Server (api)
 
 ### GRPC Specifications
