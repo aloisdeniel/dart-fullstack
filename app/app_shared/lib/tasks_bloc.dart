@@ -1,17 +1,24 @@
 import 'dart:async';
-import 'package:api_client/api.dart';
-import 'package:api_messages/api_messages.dart';
+import 'package:api_messages/api_client.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:grpc/grpc.dart';
 
 class TasksBloc {
 
-  final Api api = new Api("http://localhost:8081");
+  TaskServiceClient api; // TODO inject
 
   TasksBloc() {
 
+    final channel = new ClientChannel('localhost',
+      port: 50051,
+      options: const ChannelOptions(credentials: const ChannelCredentials.insecure())
+    );
+
+    api = new TaskServiceClient(channel);
+
     _refresh.stream.listen((_) async {
       print("refresh");
-      var all = await api.tasks.all();
+      var all = await api.all(Empty.getDefault());
       print("received:" + all.tasks.length.toString());
       _items.add(all.tasks);
     });
@@ -19,13 +26,13 @@ class TasksBloc {
     _toggle.stream.listen((task) async {
       print("toggle");
       var index = _items.value.indexOf(task);
-      await api.tasks.toggle(index);
+      await api.toggle(new TaskAtIndex()..index = index);
       refresh.add(null);
     });
 
     _add.stream.listen((task) async {
       print("add: " + task.description);
-      await api.tasks.add(task);
+      await api.add(task);
       refresh.add(null);
     });
 
@@ -37,7 +44,7 @@ class TasksBloc {
 
   final BehaviorSubject<List<Task>> _items = new BehaviorSubject<List<Task>>(seedValue: new List<Task>());
 
-  Stream get items => _items.stream;
+  Stream<List<Task>> get items => _items.stream;
 
   // Commands
 

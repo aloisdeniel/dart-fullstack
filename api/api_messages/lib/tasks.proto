@@ -1,8 +1,22 @@
+syntax = "proto3";
+
+message TaskAtIndex {
+  int32 index = 1;
+}
+
+message Empty {}
+
 message Task {
-  required bool isToggled = 1;
-  required string description = 3;
+  bool isToggled = 1;
+  string description = 3;
 }
 
 message TaskList {
   repeated Task tasks = 1;
+}
+
+service TaskService {
+  rpc add (Task) returns (TaskAtIndex) {}
+  rpc toggle(TaskAtIndex) returns (Task) {}
+  rpc all(Empty) returns (TaskList){}
 }

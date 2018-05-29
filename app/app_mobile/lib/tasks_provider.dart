@@ -2,17 +2,17 @@ import 'package:flutter/widgets.dart';
 import 'package:app_shared/tasks_bloc.dart';
 
 class TasksProvider extends InheritedWidget {
-  final TasksBloc cartBloc;
+  final TasksBloc tasksBloc;
 
   TasksProvider({
     Key key,
-    TasksBloc cartBloc,
+    TasksBloc tasksBloc,
     Widget child,
-  })  : cartBloc = cartBloc ?? TasksBloc(),
+  })  : tasksBloc = tasksBloc ?? TasksBloc(),
         super(key: key, child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
-  static TasksBloc of(BuildContext context) => (context.inheritFromWidgetOfExactType(TasksProvider) as TasksProvider).cartBloc;
+  static TasksBloc of(BuildContext context) => (context.inheritFromWidgetOfExactType(TasksProvider) as TasksProvider).tasksBloc;
 }

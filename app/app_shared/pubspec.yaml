@@ -4,5 +4,6 @@ environment:
   sdk: '>=2.0.0-dev.58 <2.0.0'
 dependencies:
   rxdart:
-  api_client:
-    path: ../../api/api_client
+  grpc:
+  api_messages:
+    path: ../../api/api_messages
