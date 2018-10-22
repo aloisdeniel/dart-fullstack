@@ -5,59 +5,45 @@ import 'package:grpc/grpc.dart';
 
 class TasksBloc {
 
-  TaskServiceClient api; // TODO inject
+  TaskServiceClient api;
 
-  TasksBloc() {
-
-    final channel = new ClientChannel('localhost',
-      port: 50051,
-      options: const ChannelOptions(credentials: const ChannelCredentials.insecure())
-    );
-
-    api = new TaskServiceClient(channel);
-
-    _refresh.stream.listen((_) async {
-      print("refresh");
-      var all = await api.all(Empty.getDefault());
-      print("received:" + all.tasks.length.toString());
-      _items.add(all.tasks);
-    });
+  TasksBloc(this.api) {
 
     _toggle.stream.listen((task) async {
       print("toggle");
-      var index = _items.value.indexOf(task);
-      await api.toggle(new TaskAtIndex()..index = index);
-      refresh.add(null);
+      var index = _tasks.value.indexOf(task);
+      await api.toggle(TaskAtIndex()..index = index);
     });
 
     _add.stream.listen((task) async {
       print("add: " + task.description);
       await api.add(task);
-      refresh.add(null);
     });
 
-    // initialize
-    refresh.add(null);
+    this._initialize();
   }
+
+  Future _initialize() async {
+    this._all = await api.all(Empty());
+    this._all.listen((response) => _tasks.add(response.tasks));
+  }
+
+  ResponseStream<TaskList> _all;
 
   // Properties
 
-  final BehaviorSubject<List<Task>> _items = new BehaviorSubject<List<Task>>(seedValue: new List<Task>());
+  BehaviorSubject<List<Task>> _tasks = BehaviorSubject<List<Task>>(seedValue: []);
 
-  Stream<List<Task>> get items => _items.stream;
+  Stream<List<Task>> get items => _tasks.stream;
 
   // Commands
 
-  final _refresh = new StreamController();
+  final _toggle = StreamController<Task>();
 
-  final _toggle = new StreamController<Task>();
-
-  final  _add = new StreamController<Task>();
+  final  _add = StreamController<Task>();
 
   Sink<Task> get toggle => _toggle.sink;
 
   Sink<Task> get add => _add.sink;
-
-  Sink get refresh => _refresh.sink;
 
 }

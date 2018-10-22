@@ -4,8 +4,9 @@ version: 0.0.1
 author: Alois Deniel
 
 environment:
-  sdk: '>=1.20.0 <2.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 
 dependencies:
-  api:
+  rxdart: ^0.19.0 
+  api: 
     path: ../api

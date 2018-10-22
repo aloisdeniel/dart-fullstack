@@ -1,9 +1,10 @@
 ///
 //  Generated code. Do not modify.
+//  source: tasks.proto
 ///
-// ignore_for_file: non_constant_identifier_names,library_prefixes
+// ignore_for_file: non_constant_identifier_names,library_prefixes,unused_import
 
-import 'dart:async';
+import 'dart:async' as $async;
 
 import 'package:grpc/grpc.dart';
 
@@ -28,21 +29,22 @@ class TaskServiceClient extends Client {
       : super(channel, options: options);
 
   ResponseFuture<TaskAtIndex> add(Task request, {CallOptions options}) {
-    final call = $createCall(_$add, new Stream.fromIterable([request]),
+    final call = $createCall(_$add, new $async.Stream.fromIterable([request]),
         options: options);
     return new ResponseFuture(call);
   }
 
   ResponseFuture<Task> toggle(TaskAtIndex request, {CallOptions options}) {
-    final call = $createCall(_$toggle, new Stream.fromIterable([request]),
+    final call = $createCall(
+        _$toggle, new $async.Stream.fromIterable([request]),
         options: options);
     return new ResponseFuture(call);
   }
 
-  ResponseFuture<TaskList> all(Empty request, {CallOptions options}) {
-    final call = $createCall(_$all, new Stream.fromIterable([request]),
+  ResponseStream<TaskList> all(Empty request, {CallOptions options}) {
+    final call = $createCall(_$all, new $async.Stream.fromIterable([request]),
         options: options);
-    return new ResponseFuture(call);
+    return new ResponseStream(call);
   }
 }
 
@@ -68,24 +70,27 @@ abstract class TaskServiceBase extends Service {
         'all',
         all_Pre,
         false,
-        false,
+        true,
         (List<int> value) => new Empty.fromBuffer(value),
         (TaskList value) => value.writeToBuffer()));
   }
 
-  Future<TaskAtIndex> add_Pre(ServiceCall call, Future request) async {
+  $async.Future<TaskAtIndex> add_Pre(
+      ServiceCall call, $async.Future request) async {
     return add(call, await request);
   }
 
-  Future<Task> toggle_Pre(ServiceCall call, Future request) async {
+  $async.Future<Task> toggle_Pre(
+      ServiceCall call, $async.Future request) async {
     return toggle(call, await request);
   }
 
-  Future<TaskList> all_Pre(ServiceCall call, Future request) async {
-    return all(call, await request);
+  $async.Stream<TaskList> all_Pre(
+      ServiceCall call, $async.Future request) async* {
+    yield* all(call, (await request) as Empty);
   }
 
-  Future<TaskAtIndex> add(ServiceCall call, Task request);
-  Future<Task> toggle(ServiceCall call, TaskAtIndex request);
-  Future<TaskList> all(ServiceCall call, Empty request);
+  $async.Future<TaskAtIndex> add(ServiceCall call, Task request);
+  $async.Future<Task> toggle(ServiceCall call, TaskAtIndex request);
+  $async.Stream<TaskList> all(ServiceCall call, Empty request);
 }

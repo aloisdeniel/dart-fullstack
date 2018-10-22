@@ -1,14 +1,14 @@
+import 'package:app_mobile/ioc.dart';
+import 'package:app_shared/tasks_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:api/api.dart';
-import '../tasks_provider.dart';
 import 'widgets.dart';
 
 class HomePage extends StatelessWidget {
 
-  Widget body(BuildContext context) {
-    final provider = TasksProvider.of(context);
+  Widget body(TasksBloc bloc, BuildContext context) {
     return StreamBuilder<List<Task>>(
-            stream: provider.items,
+            stream: bloc.items,
             builder: (context, snapshot) {
               
               if (snapshot.data == null || snapshot.data.isEmpty) {
@@ -19,16 +19,19 @@ class HomePage extends StatelessWidget {
 
               return ListView(
                   children: snapshot.data
-                      .map((item) => TaskTile(item))
+                      .map((item) => TaskTile(bloc, item))
                       .toList());
             });
   }
 
   @override
   Widget build(BuildContext context) {
+    final provider = Ioc.of(context);
+    final bloc = provider.blocs.tasks();
+    
     return Column(children: <Widget>[
-      new TaskInput(),
-      new Expanded(child: body(context)),
+      new TaskInput(bloc),
+      new Expanded(child: body(bloc, context)),
     ]);
   }
 

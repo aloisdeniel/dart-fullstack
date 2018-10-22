@@ -1,9 +1,11 @@
 name: app_web
 version: 0.0.1
 environment:
-  sdk: '>=2.0.0-dev.58 <2.0.0'
-dev_dependencies:
-  browser: ^0.10.0
-  angular: ^4.0.0 
+  sdk: '>=2.0.0 <3.0.0' 
+dependencies:
+  react: ^4.5.0
   app_shared:
     path: ../app_shared
+dev_dependencies:
+  build_runner: ">=0.8.10 <2.0.0" 
+  build_web_compilers: ">=0.3.6 <0.5.0"

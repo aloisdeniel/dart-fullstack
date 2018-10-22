@@ -4,7 +4,7 @@ description: A new Flutter project.
 dependencies:
   grpc:
   flutter:
-    sdk: flutter
+    sdk: flutter 
   app_shared:
     path: ../app_shared   
 

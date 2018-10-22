@@ -1,9 +1,9 @@
 name: app_shared
 version: 0.0.1
 environment:
-  sdk: '>=2.0.0-dev.58 <2.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 dependencies:
-  rxdart:
+  rxdart: ^0.19.0 
   grpc:
   api:
     path: ../../api

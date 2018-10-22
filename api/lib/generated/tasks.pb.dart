@@ -1,34 +1,32 @@
 ///
 //  Generated code. Do not modify.
+//  source: tasks.proto
 ///
-// ignore_for_file: non_constant_identifier_names,library_prefixes
+// ignore_for_file: non_constant_identifier_names,library_prefixes,unused_import
 
-import 'dart:async';
 // ignore: UNUSED_SHOWN_NAME
 import 'dart:core' show int, bool, double, String, List, override;
 
-import 'package:protobuf/protobuf.dart';
+import 'package:protobuf/protobuf.dart' as $pb;
 
-class TaskAtIndex extends GeneratedMessage {
-  static final BuilderInfo _i = new BuilderInfo('TaskAtIndex')
-    ..a<int>(1, 'index', PbFieldType.O3)
+class TaskAtIndex extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('TaskAtIndex')
+    ..a<int>(1, 'index', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
   TaskAtIndex() : super();
-  TaskAtIndex.fromBuffer(List<int> i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  TaskAtIndex.fromJson(String i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  TaskAtIndex.fromBuffer(List<int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  TaskAtIndex.fromJson(String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
   TaskAtIndex clone() => new TaskAtIndex()..mergeFromMessage(this);
-  BuilderInfo get info_ => _i;
+  TaskAtIndex copyWith(void Function(TaskAtIndex) updates) => super.copyWith((message) => updates(message as TaskAtIndex));
+  $pb.BuilderInfo get info_ => _i;
   static TaskAtIndex create() => new TaskAtIndex();
-  static PbList<TaskAtIndex> createRepeated() => new PbList<TaskAtIndex>();
-  static TaskAtIndex getDefault() {
-    if (_defaultInstance == null) _defaultInstance = new _ReadonlyTaskAtIndex();
-    return _defaultInstance;
-  }
+  static $pb.PbList<TaskAtIndex> createRepeated() => new $pb.PbList<TaskAtIndex>();
+  static TaskAtIndex getDefault() => _defaultInstance ??= create()..freeze();
   static TaskAtIndex _defaultInstance;
   static void $checkItem(TaskAtIndex v) {
-    if (v is! TaskAtIndex) checkItemFailed(v, 'TaskAtIndex');
+    if (v is! TaskAtIndex) $pb.checkItemFailed(v, _i.qualifiedMessageName);
   }
 
   int get index => $_get(0, 0);
@@ -37,53 +35,45 @@ class TaskAtIndex extends GeneratedMessage {
   void clearIndex() => clearField(1);
 }
 
-class _ReadonlyTaskAtIndex extends TaskAtIndex with ReadonlyMessageMixin {}
-
-class Empty extends GeneratedMessage {
-  static final BuilderInfo _i = new BuilderInfo('Empty')
+class Empty extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('Empty')
     ..hasRequiredFields = false
   ;
 
   Empty() : super();
-  Empty.fromBuffer(List<int> i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  Empty.fromJson(String i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  Empty.fromBuffer(List<int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  Empty.fromJson(String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
   Empty clone() => new Empty()..mergeFromMessage(this);
-  BuilderInfo get info_ => _i;
+  Empty copyWith(void Function(Empty) updates) => super.copyWith((message) => updates(message as Empty));
+  $pb.BuilderInfo get info_ => _i;
   static Empty create() => new Empty();
-  static PbList<Empty> createRepeated() => new PbList<Empty>();
-  static Empty getDefault() {
-    if (_defaultInstance == null) _defaultInstance = new _ReadonlyEmpty();
-    return _defaultInstance;
-  }
+  static $pb.PbList<Empty> createRepeated() => new $pb.PbList<Empty>();
+  static Empty getDefault() => _defaultInstance ??= create()..freeze();
   static Empty _defaultInstance;
   static void $checkItem(Empty v) {
-    if (v is! Empty) checkItemFailed(v, 'Empty');
+    if (v is! Empty) $pb.checkItemFailed(v, _i.qualifiedMessageName);
   }
 }
 
-class _ReadonlyEmpty extends Empty with ReadonlyMessageMixin {}
-
-class Task extends GeneratedMessage {
-  static final BuilderInfo _i = new BuilderInfo('Task')
+class Task extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('Task')
     ..aOB(1, 'isToggled')
     ..aOS(3, 'description')
     ..hasRequiredFields = false
   ;
 
   Task() : super();
-  Task.fromBuffer(List<int> i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  Task.fromJson(String i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  Task.fromBuffer(List<int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  Task.fromJson(String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
   Task clone() => new Task()..mergeFromMessage(this);
-  BuilderInfo get info_ => _i;
+  Task copyWith(void Function(Task) updates) => super.copyWith((message) => updates(message as Task));
+  $pb.BuilderInfo get info_ => _i;
   static Task create() => new Task();
-  static PbList<Task> createRepeated() => new PbList<Task>();
-  static Task getDefault() {
-    if (_defaultInstance == null) _defaultInstance = new _ReadonlyTask();
-    return _defaultInstance;
-  }
+  static $pb.PbList<Task> createRepeated() => new $pb.PbList<Task>();
+  static Task getDefault() => _defaultInstance ??= create()..freeze();
   static Task _defaultInstance;
   static void $checkItem(Task v) {
-    if (v is! Task) checkItemFailed(v, 'Task');
+    if (v is! Task) $pb.checkItemFailed(v, _i.qualifiedMessageName);
   }
 
   bool get isToggled => $_get(0, false);
@@ -97,50 +87,26 @@ class Task extends GeneratedMessage {
   void clearDescription() => clearField(3);
 }
 
-class _ReadonlyTask extends Task with ReadonlyMessageMixin {}
-
-class TaskList extends GeneratedMessage {
-  static final BuilderInfo _i = new BuilderInfo('TaskList')
-    ..pp<Task>(1, 'tasks', PbFieldType.PM, Task.$checkItem, Task.create)
+class TaskList extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = new $pb.BuilderInfo('TaskList')
+    ..pp<Task>(1, 'tasks', $pb.PbFieldType.PM, Task.$checkItem, Task.create)
     ..hasRequiredFields = false
   ;
 
   TaskList() : super();
-  TaskList.fromBuffer(List<int> i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
-  TaskList.fromJson(String i, [ExtensionRegistry r = ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
+  TaskList.fromBuffer(List<int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromBuffer(i, r);
+  TaskList.fromJson(String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) : super.fromJson(i, r);
   TaskList clone() => new TaskList()..mergeFromMessage(this);
-  BuilderInfo get info_ => _i;
+  TaskList copyWith(void Function(TaskList) updates) => super.copyWith((message) => updates(message as TaskList));
+  $pb.BuilderInfo get info_ => _i;
   static TaskList create() => new TaskList();
-  static PbList<TaskList> createRepeated() => new PbList<TaskList>();
-  static TaskList getDefault() {
-    if (_defaultInstance == null) _defaultInstance = new _ReadonlyTaskList();
-    return _defaultInstance;
-  }
+  static $pb.PbList<TaskList> createRepeated() => new $pb.PbList<TaskList>();
+  static TaskList getDefault() => _defaultInstance ??= create()..freeze();
   static TaskList _defaultInstance;
   static void $checkItem(TaskList v) {
-    if (v is! TaskList) checkItemFailed(v, 'TaskList');
+    if (v is! TaskList) $pb.checkItemFailed(v, _i.qualifiedMessageName);
   }
 
   List<Task> get tasks => $_getList(0);
-}
-
-class _ReadonlyTaskList extends TaskList with ReadonlyMessageMixin {}
-
-class TaskServiceApi {
-  RpcClient _client;
-  TaskServiceApi(this._client);
-
-  Future<TaskAtIndex> add(ClientContext ctx, Task request) {
-    var emptyResponse = new TaskAtIndex();
-    return _client.invoke<TaskAtIndex>(ctx, 'TaskService', 'add', request, emptyResponse);
-  }
-  Future<Task> toggle(ClientContext ctx, TaskAtIndex request) {
-    var emptyResponse = new Task();
-    return _client.invoke<Task>(ctx, 'TaskService', 'toggle', request, emptyResponse);
-  }
-  Future<TaskList> all(ClientContext ctx, Empty request) {
-    var emptyResponse = new TaskList();
-    return _client.invoke<TaskList>(ctx, 'TaskService', 'all', request, emptyResponse);
-  }
 }
 

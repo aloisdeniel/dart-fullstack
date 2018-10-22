@@ -1,31 +1,12 @@
-<!doctype html>
-<html lang="en" ng-app data-framework="angulardart">
-	<head>
-		<meta charset="utf-8">
-		<title>AngularDart • TodoMVC</title>
-		<style></style>
-	</head>
-	<body>
-		<section todo-controller id="todoapp">
-			<header id="header">
-				<h1>todos</h1>
-				<form id="todo-form" ng-submit="tasks.add()">
-					<input type="text" id="new-todo" placeholder="What needs to be done?" ng-model="tasks.newItem.description" autofocus>
-				</form>
-			</header>
-			<section id="main" ng-if="todo.total()" ng-cloak>
-                <ul id="todo-list">
-					<li ng-repeat="item in tasks.items">
-						<div class="view">
-							<input type="checkbox" class="toggle" ng-model="item.isToggled">
-							<label>{{item.description}}</label>
-						</div>
-					</li>
-				</ul>
-			</section>
-		</section>
-		<script src="../node_modules/todomvc-common/base.js"></script>
-		<script src="main.dart" type="application/dart"></script>
-		<script src="packages/browser/dart.js"></script>
-	</body>
+<html>
+  <head>
+    <!-- ... -->
+  </head>
+  <body>
+    <div id="react_mount_point">Here will be react content</div>
+    
+    <script src="build/packages/react/react.js"></script>
+    <script src="build/packages/react/react_dom.js"></script>
+    <script defer src="build//main.dart.js"></script>
+  </body>
 </html>

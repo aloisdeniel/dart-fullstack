@@ -18,5 +18,5 @@ message TaskList {
 service TaskService {
   rpc add (Task) returns (TaskAtIndex) {}
   rpc toggle(TaskAtIndex) returns (Task) {}
-  rpc all(Empty) returns (TaskList){}
+  rpc all(Empty) returns (stream TaskList){}
 }

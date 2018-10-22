@@ -1,7 +1,7 @@
 name: api
 version: 0.0.1
 environment:
-  sdk: '>=2.0.0-dev.58 <2.0.0'
+  sdk: '>=2.0.0 <3.0.0'
 dependencies:
-  protobuf: ^0.9.0
-  grpc: 
+  protobuf: ^0.10.4
+  grpc: ^0.6.5

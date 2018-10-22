@@ -1,7 +1,8 @@
 ///
 //  Generated code. Do not modify.
+//  source: tasks.proto
 ///
-// ignore_for_file: non_constant_identifier_names,library_prefixes
+// ignore_for_file: non_constant_identifier_names,library_prefixes,unused_import
 
 const TaskAtIndex$json = const {
   '1': 'TaskAtIndex',
@@ -27,21 +28,5 @@ const TaskList$json = const {
   '2': const [
     const {'1': 'tasks', '3': 1, '4': 3, '5': 11, '6': '.Task', '10': 'tasks'},
   ],
-};
-
-const TaskService$json = const {
-  '1': 'TaskService',
-  '2': const [
-    const {'1': 'add', '2': '.Task', '3': '.TaskAtIndex', '4': const {}},
-    const {'1': 'toggle', '2': '.TaskAtIndex', '3': '.Task', '4': const {}},
-    const {'1': 'all', '2': '.Empty', '3': '.TaskList', '4': const {}},
-  ],
-};
-
-const TaskService$messageJson = const {
-  '.Task': Task$json,
-  '.TaskAtIndex': TaskAtIndex$json,
-  '.Empty': Empty$json,
-  '.TaskList': TaskList$json,
 };
 
